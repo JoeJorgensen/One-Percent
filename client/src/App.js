@@ -14,7 +14,7 @@ import Login from './components/auth/Login';
 import NoMatch from './components/shared/NoMatch';
 import NavBar from './components/shared/NavBar';
 import FetchUser from './components/auth/FetchUser';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+import ProtectedRoute from './components/shared/ProtectedRoute';
 import Feed from './components/auth/Feed';
 import Profile from'./components/auth/Profile';
 import Braintree from './components/shared/Braintree';
@@ -33,11 +33,11 @@ function App() {
          <Route path='/register' element={<Register/>}/>
           <Route path='/' element={<Home/>}/>
           <Route path='/payment' element={<Braintree/>}/>
+          <Route path='/feed' element={<Feed/>}/>
 
 
           {/* PROTECTED */}
         <Route element={<ProtectedRoute/>}>
-          <Route path='/feed' element={<Feed/>}/>
           <Route path='/profile' element={<Profile/>}/>
 
        </Route>

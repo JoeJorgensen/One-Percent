@@ -3,6 +3,7 @@ import Badge from "react-bootstrap/esm/Badge"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../providers/AuthProvider"
 import Card from "../Card"
+import ContentCard from "./ContentCard"
 
 const Home = ()=>{
     
@@ -16,16 +17,15 @@ const Home = ()=>{
     return (
         <Card>
         <div>
-            <h1>Welcome to the starter app! Login or Register to access more features!</h1>
-           
-           
-            <Link to="/login"><Badge style={{color: 'white'}}><h4>Login</h4></Badge></Link>
-            <br/>
-            <br/>
-
-
-            <Link to="/register"><Badge style={{color: 'white'}} ><h4>Register</h4></Badge></Link>
-          
+            <p>Feed/Home page</p>
+            <ContentCard>
+            <p>Content</p>
+            </ContentCard>
+            <ContentCard>
+            <p>Content</p>
+            </ContentCard> <ContentCard>
+            <p>Content</p>
+            </ContentCard>
         </div>
         </Card>
     )

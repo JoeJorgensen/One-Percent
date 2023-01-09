@@ -126,9 +126,9 @@ const renderPayment= ()=>{
     return (
 
         <div>
-             <Navbar sticky="top" variant="dark" bg="dark"  expand='lg'>
+             <Navbar sticky="top"  variant="dark" bg="dark"  expand='lg'>
   <Container fluid>
-    <Navbar.Brand href="/">Starter App</Navbar.Brand>
+    <Navbar.Brand href="/" > 1% </Navbar.Brand>
 
         <NavDropdown 
           id="nav-dropdown-dark-example"
