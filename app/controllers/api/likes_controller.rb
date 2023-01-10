@@ -1,5 +1,5 @@
 class Api::LikesController < ApplicationController
-    before_action :set_post, only: [:show, :destroy, :update]
+    before_action :set_like, only: [:show, :destroy, :update]
 
  
  
@@ -15,7 +15,7 @@ class Api::LikesController < ApplicationController
  
    #creates a like in DB
    def create 
-     like = Like.new(post_params)
+     like = Like.new(like_params)
      file = params[:file]
      # binding.pry
      # CREATE AN IMAGE TO CLOUDINARY
@@ -64,10 +64,10 @@ class Api::LikesController < ApplicationController
  private
  #function that allows @like to find specific campign
  def set_like
-     @like = like.find(params[:id])
+     @like = Like.find(params[:id])
  end
  
  def like_params
-   params.permit(:title, :description, :image, :user_id)
+   params.permit(:user_id, :post_id)
  end
 end

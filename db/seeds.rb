@@ -15,3 +15,4 @@ u2 = User.create(name: 'Thor', email: 'thor@test.com', password: '123456')
 
 
 posts = Post.create([{title: 'Favorite Philosophers', description:'My list of my favorite philosophers', user_id:1, id:1}])
+comments = Comment.create([{content: 'Yeah same', post_id:1, id:1}])

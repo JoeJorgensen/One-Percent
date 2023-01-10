@@ -65,7 +65,7 @@ end
 private
 #function that allows @post to find specific campign
 def set_post
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
 end
 
 def post_params

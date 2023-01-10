@@ -64,7 +64,7 @@ class Api::RepostsController < ApplicationController
  private
  #function that allows @repost to find specific campign
  def set_repost
-     @repost = repost.find(params[:id])
+     @repost = Repost.find(params[:id])
  end
  
  def repost_params

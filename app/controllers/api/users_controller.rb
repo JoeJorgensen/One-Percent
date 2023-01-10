@@ -1,7 +1,19 @@
 class Api::UsersController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, :set_user, only: [:show]
+
+
+    def index 
+        render json: User.all
+    end
 
     
+    def show 
+        render json: User.find(params[:id])
+    end
+
+
+
+
     def update_image
      
         file = params[:fileYO]
@@ -33,5 +45,13 @@ class Api::UsersController < ApplicationController
         else
             render json: {errors:current_user.errors.full_messages}, status: 422
         end
+
+
     end
+
+
+    def set_user 
+        @user = User.find(params[:id])
+    end
+
 end

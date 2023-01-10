@@ -1,21 +1,21 @@
-class Api::CommentsController < ApplicationController
-    before_action :set_comment, only: [:show, :destroy, :update]
+class Api::FollowersController < ApplicationController
+    before_action :set_post, only: [:show, :destroy, :update]
 
  
  
-    #finds all comment in DB
+    #finds all follower in DB
    def index
-   render json: Comment.all
+   render json: Follower.all
    end
  
-   #finds specific comment in DB
+   #finds specific follower in DB
    def show 
-   render json: @comment
+   render json: @follower
    end
  
-   #creates a comment in DB
+   #creates a follower in DB
    def create 
-     comment = Comment.new(comment_params)
+     follower = Follower.new(post_params)
      file = params[:file]
      # binding.pry
      # CREATE AN IMAGE TO CLOUDINARY
@@ -28,7 +28,7 @@ class Api::CommentsController < ApplicationController
              # binding.pry
              puts '===cloud_image==='
              puts cloud_image
-             comment.image = cloud_image['secure_url']
+             follower.image = cloud_image['secure_url']
          rescue => e
              # image did not save to cloudinary
              render json: {errors:e}, status: 422
@@ -36,25 +36,25 @@ class Api::CommentsController < ApplicationController
              return
          end
        end
-     if(comment.save)
-       render json: comment
+     if(follower.save)
+       render json: follower
      else
-       render json: {errors: comment.errors.full_messages}, status: 422
+       render json: {errors: follower.errors.full_messages}, status: 422
      end
  end
  
- #updates a comment in DB (edit)
+ #updates a follower in DB (edit)
  def update 
-   if(@comment.update(comment_params))
-     render json: @comment
+   if(@follower.update(follower_params))
+     render json: @follower
    else
-     render json: {errors: @comment.errors.full_messages}, status: 422
+     render json: {errors: @follower.errors.full_messages}, status: 422
   end
  end
  
- #deletes a comment in DB
+ #deletes a follower in DB
  def destroy 
-   render json: @comment.destroy
+   render json: @follower.destroy
  end
  
  # def campaign_plus_categories
@@ -62,12 +62,12 @@ class Api::CommentsController < ApplicationController
  # end
  
  private
- #function that allows @comment to find specific campign
- def set_comment
-     @comment = Comment.find(params[:id])
+ #function that allows @follower to find specific campign
+ def set_follower
+     @follower = Follower.find(params[:id])
  end
  
- def comment_params
-   params.permit(:content, :likes, :user_id, :post_id)
+ def follower_params
+   params.permit(:user_id)
  end
 end
