@@ -13,6 +13,7 @@ import Button from "react-bootstrap/esm/Button";
 
 
 
+
 const NavBar = ()=>{
     // if (user)=>  logout 
     // if (!user)=>  login/register 
@@ -23,29 +24,16 @@ const NavBar = ()=>{
         if(auth.user){
           return  (
             <>
-
-
             {/* <Badge style={{color: 'white'}} >Feed</Badge> */}
             <Badge><Link to ='/feed' style={{color: 'white'}}>Feed </Link></Badge>
-
               </>  
               )
            }
           return (
             <>
             {/* <Badge style={{color: 'white'}} href="/login">Login</Badge> */}
-            <Badge><Link to ='/login' style={{color: 'white'}}>Login </Link></Badge>
-
-
-
-
-
-
-
-          
-                        
+            <Badge><Link to ='/login' style={{color: 'white'}}>Login </Link></Badge>      
              </>
-
           )
     }
     const renderLeftNav = ()=>{
@@ -54,28 +42,13 @@ const NavBar = ()=>{
         return  (
           <>
           <Badge onClick={auth.handleLogout }>Logout</Badge>
-
-
-
-
-
-
-
             </>  
             )
          }
         return (
           <>
-
-
-
-
           {/* <Badge style={{color: 'white'}} href="/register">Register</Badge> */}
-          <Badge><Link to ='/register' style={{color: 'white'}}>Register </Link></Badge>
-
-
-        
-                      
+          <Badge><Link to ='/register' style={{color: 'white'}}>Register </Link></Badge>    
            </>
 
         )
@@ -87,18 +60,14 @@ const NavBar = ()=>{
       return  (
         <>
         <Badge><Link to ='/profile' style={{color: 'white'}}> Profile </Link></Badge>
-
           </>  
           )
        }
       return (
         <>
          </>
-
       )
 }
-
-
 const renderPayment= ()=>{
 
   {
@@ -112,17 +81,8 @@ const renderPayment= ()=>{
     return (
       <>
        </>
-
     )
 }
-
-    // const renderLeft = ()=>{
-    //     if( auth.user) {
-    //         return (
-    //             <NavDropdown.Item style={{color: 'white'}} href="/"><Badge>Home</Badge></NavDropdown.Item>123
-    //         )
-    //     }
-    // }
     return (
 
         <div>
@@ -136,31 +96,16 @@ const renderPayment= ()=>{
           title="Menu"
           menuVariant="dark"
         >
-
-
-          <NavDropdown.Item style={{color: 'white'}} href="/"><Badge>Home</Badge></NavDropdown.Item>
-          
-          
+          <NavDropdown.Item style={{color: 'white'}} href="/"><Badge>Home</Badge></NavDropdown.Item>   
           <NavDropdown.Item>{renderRightNav()}</NavDropdown.Item>
           <NavDropdown.Item>{renderLeftNav()}</NavDropdown.Item>
           <NavDropdown.Item>{renderProfile()}</NavDropdown.Item>
           <NavDropdown.Item>{renderPayment()}</NavDropdown.Item>
-
-
-
-
           {/* <NavDropdown.Item><Badge onClick={auth.handleLogout } >Logout</Badge></NavDropdown.Item>
-
           <NavDropdown.Item style={{color: 'white'}} href="/"><Badge>Home</Badge></NavDropdown.Item> */}
-              
-          
-         
-        </NavDropdown>
-
-
+          </NavDropdown>
   </Container>
 </Navbar>
-
         </div>
     )
 } 

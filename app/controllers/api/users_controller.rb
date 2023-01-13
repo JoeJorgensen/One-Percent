@@ -1,16 +1,8 @@
 class Api::UsersController < ApplicationController
-    before_action :authenticate_user!, :set_user, only: [:show]
+    before_action :authenticate_user!
 
 
-    def index 
-        render json: User.all
-    end
-
-    
-    def show 
-        render json: User.find(params[:id])
-    end
-
+ 
 
 
 
@@ -50,8 +42,6 @@ class Api::UsersController < ApplicationController
     end
 
 
-    def set_user 
-        @user = User.find(params[:id])
-    end
+   
 
 end
